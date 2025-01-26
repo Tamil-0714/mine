@@ -13,14 +13,14 @@ import {
 import { IconBrandLinkedin } from "@tabler/icons-react/dist/esm/tabler-icons-react";
 // import Image from "next/image";
 
-export function FloatingDockDemo({setcurrenctComponent}) {
+export function FloatingDockDemo() {
   const links = [
     {
       title: "Home",
       icon: (
         <IconHome className="h-full w-full text-neutral-500 dark:text-neutral-300" />
       ),
-      href: "#",
+      href: "/",
     },
 
     {
@@ -28,7 +28,7 @@ export function FloatingDockDemo({setcurrenctComponent}) {
       icon: (
         <IconUser className="h-full w-full text-neutral-500 dark:text-neutral-300" />
       ),
-      href: "#",
+      href: "/about",
     },
     {
       title: "Reach me",
@@ -58,13 +58,14 @@ export function FloatingDockDemo({setcurrenctComponent}) {
       icon: (
         <IconBrandGithub className="h-full w-full text-neutral-500 dark:text-neutral-300" />
       ),
-      href: "#",
+      href: "http://www.github.com/tamil-0714",
     },
   ];
   return (
     (<div className="flex items-center justify-center mt-20 w-full">
       <FloatingDock
-      setcurrenctComponent={setcurrenctComponent}
+      
+      
         items={links} />
     </div>)
   );

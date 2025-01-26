@@ -19,26 +19,32 @@ import { useEffect, useRef, useState } from "react";
 export const FloatingDock = ({
   items,
   desktopClassName,
-  setcurrenctComponent,
+  
+
   mobileClassName,
 }) => {
   return (
     <>
       <FloatingDockDesktop
         items={items}
-        setcurrenctComponent={setcurrenctComponent}
+        
         className={desktopClassName}
       />
       <FloatingDockMobile
         items={items}
-        setcurrenctComponent={setcurrenctComponent}
+        
         className={mobileClassName}
       />
     </>
   );
 };
 
-const FloatingDockMobile = ({ items, setcurrenctComponent, className }) => {
+const FloatingDockMobile = ({
+  items,
+  
+
+  className,
+}) => {
   const [open, setOpen] = useState(false);
   return (
     <div className={cn("relative block md:hidden", className)}>
@@ -96,7 +102,12 @@ const FloatingDockMobile = ({ items, setcurrenctComponent, className }) => {
   );
 };
 
-const FloatingDockDesktop = ({ items, setcurrenctComponent, className }) => {
+const FloatingDockDesktop = ({
+  items,
+  
+
+  className,
+}) => {
   let mouseX = useMotionValue(Infinity);
   return (
     <motion.div
@@ -113,7 +124,7 @@ const FloatingDockDesktop = ({ items, setcurrenctComponent, className }) => {
       {items.map((item) => (
         <IconContainer
           mouseX={mouseX}
-          setcurrenctComponent={setcurrenctComponent}
+          
           key={item.title}
           {...item}
         />
@@ -122,7 +133,14 @@ const FloatingDockDesktop = ({ items, setcurrenctComponent, className }) => {
   );
 };
 
-function IconContainer({ mouseX, title, setcurrenctComponent, icon, href }) {
+function IconContainer({
+  mouseX,
+  title,
+  
+
+  icon,
+  href,
+}) {
   let ref = useRef(null);
 
   let distance = useTransform(mouseX, (val) => {
@@ -165,21 +183,20 @@ function IconContainer({ mouseX, title, setcurrenctComponent, icon, href }) {
 
   const [hovered, setHovered] = useState(false);
 
-  const handleTitleClick = (title) => {
-    if (title === "Home") setcurrenctComponent("home");
-    if (title === "About") setcurrenctComponent("about");
-  };
+
 
   return (
-    // (<a href={href}>
+     (<a href={href}>
     <motion.div
-      onClick={() => {
-        handleTitleClick(title);
-      }}
+
       ref={ref}
       style={{ width, height, cursor: "pointer" }}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
+      onMouseEnter={() => {
+        setHovered(true);
+      }}
+      onMouseLeave={() => {
+        setHovered(false);
+      }}
       className="aspect-square rounded-full bg-gray-200 dark:bg-neutral-800 flex items-center justify-center relative"
     >
       <AnimatePresence>
@@ -201,6 +218,6 @@ function IconContainer({ mouseX, title, setcurrenctComponent, icon, href }) {
         {icon}
       </motion.div>
     </motion.div>
-    // </a>)
+    </a>)
   );
 }

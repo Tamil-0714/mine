@@ -39,142 +39,94 @@ import Magnet from "../sub/Magnet";
 import SplashCursor from "../sub/SplashCursor";
 import { OrbitingCircles } from "../sub/OrbitalSkill";
 import BlurText from "../sub/BlurText";
+import TrueFocus from "../sub/TrueFocus";
 const words = ["Javascript.", "Node.js", "React.js", "Backend.", "Frontend."];
 export const About = () => {
   return (
     <>
-      <SplashCursor />
+      <SplashCursor  />
       <motion.div
         initial="hidden"
         animate="visible"
-        className="flex flex-row items-center justify-center px-20 mt-10 w-full z-[20]"
+        className="flex flex-row items-center justify-center px-20 ml-20 w-full z-[20]"
       >
-        
         <div className="h-full w-full flex flex-col gap-5 justify-center m-auto text-start">
-          <motion.div
-            variants={bounceVariants}
-            exit="exit"
-            initial="initial"
-            animate="animate"
-            style={{
-              padding:"12px"
-            }}
-            className="Welcome-box  py-[8px] px-[7px] border border-[#7042f88b] opacity-[0.9]]"
-          >
-            <BlurText
-              text="About Me"
-              delay={150}
-              animateBy="words"
-              direction="top"
-              // onAnimationComplete={handleAnimationComplete}
-              className="text-2xl"
-            />
-            {/* <SparklesText className="mx-2 text-white" text="Hey there!👋" /> */}
-            
-          </motion.div>
-
-          <motion.div
-            variants={slideInFromLeft(0.5)}
-            // exit="exit"
-            className="flex flex-col gap-6 mt-6 text-6xl text-bold text-white max-w-[600px] w-auto h-auto"
-          >
-            <span>
-              I&apos;m{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500">
-                Tamilarasan
-              </span>{" "}
-            </span>
-          </motion.div>
-
-          <motion.div
-            variants={slideInFromLeft(0.8)}
-            // exit="exit"
-            className="text-lg text-gray-400 my-5 max-w-[600px]"
-          >
-            <h2 className="mt-0 font-bold lg:text-2xl md:text-xl sm:text-lg flex flex-row items-center">
-              <span className="text-white">I am a Web App Developer in</span>
-              <div className="text-slate-900">
-                <FlipWords words={words} />
-              </div>
-            </h2>
-          </motion.div>
-          <motion.p
-            className="mt-0  text-white font-medium lg:w-4/5"
-            variants={slideInFromLeft(1)}
-            // exit="exit"
-          >
-            Welcome to my portfolio! I hope you enjoy your visit. I specialize
-            in Back-End development with Node.js and Front-End development with
-            React.js. I have worked on various projects, including a{" "}
-            <span
-              className="text-indigo-600 cursor-pointer"
-              onClick={() =>
-                window.open(
-                  "https://github.com/tamil-0714/college-project",
-                  "_blank"
-                )
-              }
-            >
-              SaaS LMS Platform with Code Execution and Collaboration Tools
-            </span>
-            ,React-based Web App.
-            <br />
-            <br />I am passionate about learning new technologies and building
-            solutions that make a difference. Thank you for visiting my
-            portfolio! I hope you like my work.{" "}
-            <span className="text-yellow-500">Happy coding!</span> 🧑🏻‍💻
-            <div className="flex gap-5 mt-5 border-white border-collapse rounded">
-              <a href="https://github.com/tamil-0714" target="_blank">
-                <FaGithub className="h-7 w-7" />
-              </a>
-              <a href="https://www.linkedin.com/in/tamil0714/" target="_blank">
-                <FaLinkedin className="h-7 w-7" />
-              </a>
-            </div>
-          </motion.p>
-          <motion.div
-            variants={slideInFromTop}
-            // exit="exit"
+          <div
             style={{
               display: "flex",
-              // outline: "1px solid red",
-              gap: "20px",
+              alignItems: "center",
+              // outline:"1px solid",
+              width: "650px",
+              gap:"40px"
             }}
           >
             <motion.div
+              variants={bounceVariants}
+              exit="exit"
+              initial="initial"
+              animate="animate"
               style={{
-                width: "200px",
+                padding: "12px",
               }}
-              variants={slideInFromLeft(0.5)}
-              // exit="exit"
+              className="Welcome-box  py-[8px] px-[7px] border border-[#7042f88b] opacity-[0.9]]"
             >
-              <Magnet magnetStrength={7}>
-                <motion.a
-                  style={{
-                    width: "200px",
-                    display: "block",
-                  }}
-                  className="py-2 button-primary text-center text-white cursor-pointer rounded-lg max-w-[200px]"
-                  href="https://drive.google.com/file/d/1Ig1VzgaVHBqu8BsyB5IRotf6S0Irec-Q/view?usp=sharing"
-                  target="_blank"
-                >
-                  Resume
-                </motion.a>
-              </Magnet>
+              <BlurText
+                text="About Me"
+                delay={300}
+                animateBy="words"
+                direction="top"
+                // onAnimationComplete={handleAnimationComplete}
+                className="text-2xl"
+              />
+
+              {/* <SparklesText className="mx-2 text-white" text="Hey there!👋" /> */}
             </motion.div>
-            <motion.a
+            <motion.div
+            variants={slideInFromLeft(1)}
               style={{
-                width: "200px",
+                marginRight: "30px",
               }}
-              variants={slideInFromLeft(0.5)}
-              // exit="exit"
-              className="py-2 button-primary text-center text-white cursor-pointer rounded-lg max-w-[200px]"
-              href="https://drive.google.com/file/d/1Ig1VzgaVHBqu8BsyB5IRotf6S0Irec-Q/view?usp=sharing"
-              target="_blank"
             >
-              My Works
-            </motion.a>
-          </motion.div>
+              <TrueFocus
+                // sentence="Focus-> Hire me"
+                manualMode={true}
+                blurAmount={10}
+                borderColor="red"
+                animationDuration={1}
+                pauseBetweenAnimations={1}
+              />
+            </motion.div>
+          </div>
+          <motion.p
+            className="mt-0  text-white border border-[#7042f88b] p-10 rounded lg:w-4/5"
+            style={{
+              fontSize: "1.1rem",
+              lineHeight: "30px",
+            }}
+            variants={slideInFromLeft(1)}
+            // exit="exit"
+          >
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500">
+              I'm a Software Engineer 
+            </span>{" "}
+            with a passion for designing and building innovative, user-focused
+            solutions. I specialize in developing dynamic, responsive, and
+            scalable web applications, seamlessly combining my expertise in both
+            front-end and back-end technologies. Proficient in data structures
+            and algorithms, I enjoy tackling complex problems and transforming
+            them into practical, efficient solutions. <br />
+            <br />
+            Beyond web development, I have a strong interest in emerging
+            technologies such as Machine Learning, and I thrive on experimenting
+            with new ideas to create impactful projects. My curiosity for
+            technology began early, fueling a lifelong commitment to learning
+            and growing as a developer. <br />
+            <br /> When I’m not coding, I enjoy diving into creative pursuits
+            and exploring how technology intersects with everyday life. With a
+            strong foundation in software engineering and a drive to innovate,
+            I’m dedicated to crafting solutions that make a meaningful
+            difference.
+          </motion.p>
         </div>
 
         <motion.div
@@ -192,20 +144,36 @@ export const About = () => {
         /> */}
           <div className="relative flex px-20 lg:h-[500px] h-[330px] w-full  flex-col items-center justify-center overflow-hidden ">
             <span className="pointer-events-none whitespace-pre-wrap bg-gradient-to-b from-black to-gray-300 bg-clip-text text-center lg:text-5xl text-5xl font-semibold leading-none text-transparent dark:from-white dark:to-black">
-              Skills
+              Hobbies
             </span>
 
-            <OrbitingCircles iconSize={40} radius={120}>
-              <FaNode className="text-green-500 lg:text-8xl text-3xl" />
-              <DiMongodb className="text-lime-500 lg:text-8xl text-3xl" />
-              <SiExpress className="dark:text-slate-50 text-slate-900 lg:text-8xl text-3xl" />
-              <FaReact className="text-sky-500 lg:text-8xl text-3xl" />
-              <SiTailwindcss className="text-cyan-500 lg:text-8xl text-3xl" />
-              <SiThreedotjs className="dark:text-slate-50 text-slate-900 lg:text-8xl text-3xl" />
-              <RiJavascriptFill className="text-yellow-500 lg:text-8xl text-3xl" />
+            <OrbitingCircles iconSize={70} radius={190}>
+              <img
+                src="/hobbies/h1.png"
+                alt="Fitness"
+                className="lg:w-32 w-8"
+              />
+              <img src="/hobbies/h2.png" alt="Cookin" className="lg:w-32 w-8" />
+              <img src="/hobbies/h3.png" alt="Games" className="lg:w-32 w-8" />
+              <img src="/hobbies/h4.png" alt="Coding" className="lg:w-32 w-8" />
+              <img
+                src="/hobbies/h5.png"
+                alt="Learning"
+                className="lg:w-32 w-8"
+              />
+              <img
+                src="/hobbies/h6.png"
+                alt="Reading"
+                className="lg:w-32 w-8"
+              />
+              <img
+                src="/hobbies/h9.png"
+                alt="Disscusion"
+                className="lg:w-32 w-8"
+              />
             </OrbitingCircles>
 
-            <OrbitingCircles iconSize={40} radius={190} reverse>
+            {/* <OrbitingCircles iconSize={40} radius={190} reverse>
               <SiMysql
                 color="white"
                 className="text-sky-500 lg:text-8xl text-3xl"
@@ -218,7 +186,7 @@ export const About = () => {
               <SiApollographql className="text-blue-300 lg:text-8xl text-3xl" />
               <FaDocker className="text-cyan-500 lg:text-8xl text-3xl" />
               <FaUbuntu className="text-orange-500 lg:text-8xl text-3xl" />
-            </OrbitingCircles>
+            </OrbitingCircles> */}
             {/* <SkillTagCloud /> */}
           </div>
         </motion.div>

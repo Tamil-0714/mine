@@ -33,6 +33,20 @@ export function slideInFromRight(delay) {
     exit: exitAnimation,
   };
 }
+export function slideInFromTopWithDelay(delay) {
+  return {
+    hidden: { y: -100, opacity: 0 },
+    visible: {
+      x: 0,
+      opacity: 1,
+      transition: {
+        delay: delay,
+        duration: 0.7,
+      },
+    },
+    exit: exitAnimation,
+  };
+}
 export const bounceVariants = {
     initial: {
       y: "-100vh", // Start above the screen
