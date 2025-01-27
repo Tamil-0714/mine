@@ -1,15 +1,34 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
 
 const SkillTagCloud = () => {
   const containerRef = useRef(null);
+  const [variable, setVariable] = useState(75); // Default value can be anything
 
   useEffect(() => {
-    let scn, cam, rndr, grp, ldr, sps;
+    const handleResize = () => {
+      if (window.innerWidth < 768) {
+        setVariable(95);
+      } else {
+        setVariable(75); // Reset value if needed for larger screens
+      }
+    };
 
+    // Set the value initially when the component mounts
+    handleResize();
+
+    // Add event listener for window resize
+    window.addEventListener("resize", handleResize);
+
+    // Cleanup the event listener on component unmount
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+  useEffect(() => {
+    let scn, cam, rndr, grp, ldr, sps;
+    
     const initializeScene = () => {
       scn = new THREE.Scene();
-      cam = new THREE.PerspectiveCamera(75, 1, 0.1, 1000);
+      cam = new THREE.PerspectiveCamera(variable, 1, 0.1, 1000);
       rndr = new THREE.WebGLRenderer({ antialias: true });
       grp = new THREE.Group();
       ldr = new THREE.TextureLoader();
@@ -89,44 +108,44 @@ const SkillTagCloud = () => {
       window.addEventListener("scroll", updateCanvasRect);
       window.addEventListener("resize", updateCanvasRect);
 
-      window.addEventListener("click", (e) => {
-        if (
-          e.clientX >= canvasRect.left &&
-          e.clientX <= canvasRect.right &&
-          e.clientY >= canvasRect.top &&
-          e.clientY <= canvasRect.bottom
-        ) {
-          ry.setFromCamera(
-            {
-              x: (2 * (e.clientX - canvasRect.left)) / 375 - 1,
-              y: (2 * -(e.clientY - canvasRect.top)) / 375 + 1,
-            },
-            cam
-          );
-          const it = ry.intersectObjects(sps)[0];
-          it && grp.attach(it.object);
-        }
-      });
+      // window.addEventListener("click", (e) => {
+      //   if (
+      //     e.clientX >= canvasRect.left &&
+      //     e.clientX <= canvasRect.right &&
+      //     e.clientY >= canvasRect.top &&
+      //     e.clientY <= canvasRect.bottom
+      //   ) {
+      //     ry.setFromCamera(
+      //       {
+      //         x: (2 * (e.clientX - canvasRect.left)) / 375 - 1,
+      //         y: (2 * -(e.clientY - canvasRect.top)) / 375 + 1,
+      //       },
+      //       cam
+      //     );
+      //     const it = ry.intersectObjects(sps)[0];
+      //     it && grp.attach(it.object);
+      //   }
+      // });
 
       let mx = 0,
         my = 0;
 
-      window.addEventListener("mousemove", (e) => {
-        if (
-          e.clientX >= canvasRect.left &&
-          e.clientX <= canvasRect.right &&
-          e.clientY >= canvasRect.top &&
-          e.clientY <= canvasRect.bottom
-        ) {
-          mx = (0.01 * (e.clientX - canvasRect.left)) / 375 - 1;
-          my = (2 * -(e.clientY - canvasRect.top)) / 375 + 1;
-        }
-      });
+      // window.addEventListener("mousemove", (e) => {
+      //   if (
+      //     e.clientX >= canvasRect.left &&
+      //     e.clientX <= canvasRect.right &&
+      //     e.clientY >= canvasRect.top &&
+      //     e.clientY <= canvasRect.bottom
+      //   ) {
+      //     mx = (0.01 * (e.clientX - canvasRect.left)) / 375 - 1;
+      //     my = (2 * -(e.clientY - canvasRect.top)) / 375 + 1;
+      //   }
+      // });
 
       const animate = () => {
         requestAnimationFrame(animate);
-        grp.rotation.y += 0.005 + mx * 0.02;
-        grp.rotation.x += my * 0.02;
+        grp.rotation.y += 0.001 + mx * 0.002;
+        grp.rotation.x += my * 0.002;
         grp.children.forEach((s) => s.lookAt(cam.position));
         rndr.render(scn, cam);
       };
@@ -154,12 +173,22 @@ const SkillTagCloud = () => {
       style={{
         position: "absolute",
         top: "40px",
+        outline:"1px solid",
+        height:"450px",
+        borderRadius:"8px",
+        cursor:"pointer"
       }}
     >
+      <h2 className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500" style={{
+        margin:"10px 0 0 20px",
+        fontSize:"1.2rem",
+        fontWeight:"bold",
+        textAlign:"center"
+      }}>Know more about my Skills</h2>
       <div
         ref={containerRef}
         style={{
-          height: "355px",
+          height: "450px",
           aspectRatio: "1",
           background: "none",
           margin: "0 auto",

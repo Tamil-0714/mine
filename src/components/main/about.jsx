@@ -44,7 +44,7 @@ const words = ["Javascript.", "Node.js", "React.js", "Backend.", "Frontend."];
 export const About = () => {
   return (
     <>
-      <SplashCursor  />
+      {/* <SplashCursor  /> */}
       <motion.div
         initial="hidden"
         animate="visible"
@@ -70,15 +70,15 @@ export const About = () => {
               }}
               className="Welcome-box  py-[8px] px-[7px] border border-[#7042f88b] opacity-[0.9]]"
             >
-              <BlurText
+              {/* <BlurText
                 text="About Me"
                 delay={300}
                 animateBy="words"
                 direction="top"
                 // onAnimationComplete={handleAnimationComplete}
-                className="text-2xl"
-              />
-
+                className="text-1xl"
+              /> */}
+              <h3>About Me</h3>
               {/* <SparklesText className="mx-2 text-white" text="Hey there!👋" /> */}
             </motion.div>
             <motion.div
@@ -91,7 +91,7 @@ export const About = () => {
                 // sentence="Focus-> Hire me"
                 manualMode={true}
                 blurAmount={10}
-                borderColor="red"
+                // borderColor="red"
                 animationDuration={1}
                 pauseBetweenAnimations={1}
               />

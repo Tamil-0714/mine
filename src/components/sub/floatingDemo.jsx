@@ -62,7 +62,7 @@ export function FloatingDockDemo() {
     },
   ];
   return (
-    (<div className="flex items-center justify-center mt-20 w-full">
+    (<div className="flex items-center justify-center mt-20 w-full dock-nav-bar">
       <FloatingDock
       
       
