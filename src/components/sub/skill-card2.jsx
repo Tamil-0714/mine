@@ -3,7 +3,7 @@ import { Boxes } from "lucide-react";
 export default function DeveloperCard({ style }) {
   return (
     <div
-      className="relative max-w-md h-[440px] p-8 bg-white rounded-lg shadow-lg"
+      className="relative max-w-md h-[455px] p-8 bg-white rounded-lg shadow-lg"
       style={{ ...style, color: "black" }}
     >
       {/* Background pattern */}
