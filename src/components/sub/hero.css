@@ -6,15 +6,36 @@
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.18);
 }
+.mobile-skillcloud{
+    display: none;
+}
+.laption-skillcloud{
+    display: block;
+}
+.skill-box-container{
+    /* height: 730px; */
+}
 
+.circleX{
+    position: absolute;
+    z-index: 90;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+}
 
 @media (max-width: 768px) {
+    *{
+        /* overflow-x: hidden; */
+        /* outline: 1px solid red; */
+    }
     .hi-there *{
         font-size: 0.7rem ;
         
     }
     body{
         overflow-y: auto !important;
+        
         /* color: red; */
     }
     .hi-there{
@@ -23,19 +44,37 @@
     .hero-top-section {
       flex-direction: column;
       padding: 0;
-      margin-left: 30px;
+      margin-left: 0px;
+      padding-left: 30px;
     }
     #section1{
         height: 290px !important;
         width: 290px !important;
+        margin-left: -30px;
     }
     .iam-text{
         font-size: 2.2rem;
+      
+        width: 90%;
         margin: 0;
     }
+
     .iam-web-dev{
-        font-size: .9rem;
+        font-size: .8rem;
+        /* outline: 1px solid yellow; */
+        width: 90%;
         margin: 0;
+    }
+    .flip-word-box{
+        /* outline: 1px solid red; */
+        width: 100px;
+    
+    }
+    .flip-word-box * {
+        /* outline: 1px solid yellow; */
+    }
+    .skill-box-container {
+        height: 374px;
     }
     .welcome-msg{
         font-size: 0.9rem;
@@ -49,10 +88,41 @@
     }
     .resume-works-btn a, .works-btn-a{
         width: 150px !important;
+
         /* outline: 1px solid red; */
     }
-    /* .btn-hero-lgap{
-        gap: 0px !important;
-        justify-content: flex-start;
-    } */
+    .btn-hero-lgap{
+        /* outline: 1px solid red; */
+        width: 90%;
+    }
+    
+    .mobile-skillcloud{
+        display: block;
+    }
+    .laption-skillcloud{
+        display: none;
+    }
+    .know-more-skill{
+        font-size: 1rem !important;
+    }
+    
+    .skill-tag-cloud canvas {
+        width: 330px !important;
+        height: 330px !important;
+        margin-top: -50px;
+        margin-left: -20px;
+    }
+
+    .skills-popup{
+        width: 100% !important;
+        height: 100vh !important;
+        padding: 40px !important;
+        padding-top: 120px !important;
+    }
+    .circleX{
+        position: absolute;
+        z-index: 90;
+        top: 70px;
+        cursor: pointer;
+    }
   }

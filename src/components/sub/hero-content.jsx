@@ -38,47 +38,60 @@ import SkillGrid from "./skill-grid";
 import "./hero.css";
 import SkillCard from "./skill-card";
 import SkillCard2 from "./skill-card2";
+import { CircleX } from "lucide-react";
+import { useState } from "react";
 const words = ["Javascript.", "Node.js", "React.js", "Backend.", "Frontend."];
 export const HeroContent = () => {
+  const [isOpenSkills, setIsOpenSkills] = useState(false);
   return (
     <>
-      {/* <div
-        className=""
-        style={{
-          width: "100vw",
-          height: "130vh",
-          position: "absolute",
-          zIndex: "30",
-          backgroundColor: "#000000d3",
-          top: "-200px",
-          left: "0",
-        }}
-      >
+      {isOpenSkills && (
         <div
-          className="skills-popup"
+          className=""
           style={{
-            position: "relative",
-            top: "45%",
-            left: "50%",
-            width: "80%",
-            height: "90vh",
-            border: "1px solid white",
-            transform: "translate(-50%, -50%)",
-            padding: "20px",
-            display: "flex",
-            gap: "20px",
-            alignItems: "baseline",
-            flexWrap:"wrap",
-            overflow:"auto",
-            justifyContent: "center",
+            width: "100vw",
+            height: "130vh",
+            position: "absolute",
+            zIndex: "30",
+            backgroundColor: "#000000d3",
+            top: "-200px",
+            left: "0",
           }}
         >
-          <SkillCard />
-          <SkillCard2 />
+          <div
+            className="skills-popup"
+            style={{
+              position: "relative",
+              top: "45%",
+              left: "50%",
+              width: "80%",
+              height: "90vh",
+              border: "1px solid white",
+              transform: "translate(-50%, -50%)",
+              padding: "20px",
+              paddingTop: "60px",
+              display: "flex",
+              gap: "20px",
+              alignItems: "baseline",
+              flexWrap: "wrap",
+              overflow: "auto",
+              justifyContent: "center",
+            }}
+          >
+            <CircleX
+              size={30}
+              onClick={() => {
+                setIsOpenSkills(false);
+              }}
+              className="circleX"
+            />
+            <SkillCard />
+            <SkillCard2 />
+          </div>
         </div>
-      </div> */}
+      )}
 
-          {/* <SkillGrid /> */}
+      {/* <SkillGrid /> */}
       <motion.div
         initial="hidden"
         animate="visible"
@@ -115,7 +128,7 @@ export const HeroContent = () => {
           >
             <h2 className="mt-0 font-bold lg:text-2xl md:text-xl sm:text-lg flex flex-row items-center">
               <span className="text-white">I am a Web App Developer in</span>
-              <div className="text-slate-900">
+              <div className="text-slate-900 flip-word-box">
                 <FlipWords words={words} />
               </div>
             </h2>
@@ -138,8 +151,8 @@ export const HeroContent = () => {
               }
             >
               SaaS LMS Platform with Code Execution and Collaboration Tools
-            </span>
-            ,React-based Web App.
+            </span>{" "}
+            , React-based Web App.
             <br />
             <br />I am passionate about learning new technologies and building
             solutions that make a difference. Thank you for visiting my
@@ -204,7 +217,7 @@ export const HeroContent = () => {
         <motion.div
           variants={slideInFromRight(0.8)}
           // exit="exit"
-          className="w-full h-full flex justify-center items-center"
+          className="w-full h-full flex justify-center items-center skill-box-section"
         >
           {/* <Image
           src="/hero-bg.svg"
@@ -215,7 +228,7 @@ export const HeroContent = () => {
           className="select-none"
         /> */}
 
-          <div className="relative flex px-20 lg:h-[500px] h-[650px] w-full  flex-col items-center justify-center overflow-hidden skill-box-container">
+          <div className="relative flex px-20 lg:h-[550px] h-[650px] w-full  flex-col items-center justify-center overflow-hidden skill-box-container">
             <span className="pointer-events-none whitespace-pre-wrap bg-gradient-to-b from-black to-gray-300 bg-clip-text text-center lg:text-5xl text-5xl font-semibold leading-none text-transparent dark:from-white dark:to-black">
               {/* Skills */}
             </span>
@@ -244,7 +257,18 @@ export const HeroContent = () => {
             <FaDocker className="text-cyan-500 lg:text-8xl text-3xl" />
             <FaUbuntu className="text-orange-500 lg:text-8xl text-3xl" />
           </OrbitingCircles> */}
-            <SkillTagCloud />
+
+            <SkillTagCloud
+              percam={100}
+              className="mobile-skillcloud"
+              setIsOpenSkills={setIsOpenSkills}
+            />
+
+            <SkillTagCloud
+              percam={75}
+              className="laption-skillcloud"
+              setIsOpenSkills={setIsOpenSkills}
+            />
           </div>
         </motion.div>
       </motion.div>

@@ -3,6 +3,11 @@
 @tailwind utilities;
 
 /* ... */
+
+*{
+  /* outline: 1px solid red !important; */
+  /* overflow-x: hidden; */
+}
 body {
   font-family: "Poppins", sans-serif;
 }

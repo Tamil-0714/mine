@@ -1,34 +1,35 @@
+import { Expand } from "lucide-react";
 import React, { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
 
-const SkillTagCloud = () => {
+const SkillTagCloud = ({ className, percam, setIsOpenSkills }) => {
   const containerRef = useRef(null);
   const [variable, setVariable] = useState(75); // Default value can be anything
 
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth < 768) {
-        setVariable(95);
-      } else {
-        setVariable(75); // Reset value if needed for larger screens
-      }
-    };
+  // useEffect(() => {
+  //   const handleResize = () => {
+  //     if (window.innerWidth < 768) {
+  //       setVariable(95);
+  //     } else {
+  //       setVariable(75); // Reset value if needed for larger screens
+  //     }
+  //   };
 
-    // Set the value initially when the component mounts
-    handleResize();
+  //   // Set the value initially when the component mounts
+  //   handleResize();
 
-    // Add event listener for window resize
-    window.addEventListener("resize", handleResize);
+  //   // Add event listener for window resize
+  //   window.addEventListener("resize", handleResize);
 
-    // Cleanup the event listener on component unmount
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
+  //   // Cleanup the event listener on component unmount
+  //   return () => window.removeEventListener("resize", handleResize);
+  // }, []);
   useEffect(() => {
     let scn, cam, rndr, grp, ldr, sps;
-    
+
     const initializeScene = () => {
       scn = new THREE.Scene();
-      cam = new THREE.PerspectiveCamera(variable, 1, 0.1, 1000);
+      cam = new THREE.PerspectiveCamera(percam, 1, 0.1, 1000);
       rndr = new THREE.WebGLRenderer({ antialias: true });
       grp = new THREE.Group();
       ldr = new THREE.TextureLoader();
@@ -170,21 +171,39 @@ const SkillTagCloud = () => {
   return (
     <section
       id="section1"
+      onClick={()=>{setIsOpenSkills(true)}}
+      className={className}
       style={{
         position: "absolute",
         top: "40px",
-        outline:"1px solid",
-        height:"450px",
-        borderRadius:"8px",
-        cursor:"pointer"
+        outline: "1px solid",
+        height: "480px",
+        borderRadius: "8px",
+        cursor: "pointer",
       }}
     >
-      <h2 className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500" style={{
-        margin:"10px 0 0 20px",
-        fontSize:"1.2rem",
-        fontWeight:"bold",
-        textAlign:"center"
-      }}>Know more about my Skills</h2>
+      <div className="skill-expand" style={{
+        display:"flex",
+        alignItems:"center",
+        // outline:"1px solid red",
+        marginTop:"8px",
+        padding:"10px",
+        justifyContent:"space-around"
+      }}>
+      <h2
+        className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500 know-more-skill"
+        style={{
+          // margin: "10px 0 0 20px",
+          fontSize: "1.2rem",
+          fontWeight: "bold",
+          textAlign: "center",
+        }}
+      >
+        Know more about my Skills{" "}
+      </h2>{" "}
+      {/* <Expand scale={50} /> */}
+      <Expand size={20} />
+      </div>
       <div
         ref={containerRef}
         style={{
