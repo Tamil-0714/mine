@@ -114,15 +114,23 @@
     }
 
     .skills-popup{
-        width: 100% !important;
-        height: 100vh !important;
-        padding: 40px !important;
-        padding-top: 120px !important;
+        width: 92% !important;
+        height: 98vh !important;
+        padding-top: 80px !important;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        /* padding: 40px !important; */
+        /* padding-top: 120px !important; */
     }
+    .top-skill-wrapper{
+        /* overflow: hidden; */
+        /* height: 130vh !important; */
+    }
+    
     .circleX{
         position: absolute;
         z-index: 90;
-        top: 70px;
+        top: 30px;
         cursor: pointer;
     }
   }

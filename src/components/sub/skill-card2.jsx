@@ -1,9 +1,11 @@
-import { Boxes } from "lucide-react"
+import { Boxes } from "lucide-react";
 
-
-export default function DeveloperCard() {
+export default function DeveloperCard({ style }) {
   return (
-    <div className="relative max-w-md h-[440px] p-8 bg-white rounded-lg shadow-lg" style={{color:"black"}}>
+    <div
+      className="relative max-w-md h-[440px] p-8 bg-white rounded-lg shadow-lg"
+      style={{ ...style, color: "black" }}
+    >
       {/* Background pattern */}
       <div className="absolute inset-0 overflow-hidden">
         {/* <div className="absolute inset-0 opacity-100">
@@ -28,20 +30,23 @@ export default function DeveloperCard() {
       <div className="relative z-10 space-y-6">
         <div className="flex items-center gap-3">
           <Boxes className="w-6 h-6" />
-          
+
           <div>
             <h1 className="text-xl font-mono">Front End</h1>
             <h2 className="text-xl font-mono">Developer</h2>
           </div>
         </div>
 
-
-        <p className="text-sm">With my stunning front-end skills, I transform creativity into captivating designs with an exceptional user experience. .</p>
+        <p className="text-sm">
+          With my stunning front-end skills, I transform creativity into
+          captivating designs with an exceptional user experience. .
+        </p>
         <div className="space-y-2">
           <h3 className="font-mono font-bold">Skills</h3>
-          <p className="text-sm">HTML, CSS, Javascript, EJS, Bootstrap, Tailwind, React, Shadcn/UI</p>
+          <p className="text-sm">
+            HTML, CSS, Javascript, EJS, Bootstrap, Tailwind, React, Shadcn/UI
+          </p>
         </div>
-
 
         <div className="space-y-2">
           <h3 className="font-mono font-bold">TOOLS</h3>
@@ -54,6 +59,5 @@ export default function DeveloperCard() {
         </div>
       </div>
     </div>
-  )
+  );
 }
-

@@ -39,37 +39,54 @@ import "./hero.css";
 import SkillCard from "./skill-card";
 import SkillCard2 from "./skill-card2";
 import { CircleX } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 const words = ["Javascript.", "Node.js", "React.js", "Backend.", "Frontend."];
+
 export const HeroContent = () => {
   const [isOpenSkills, setIsOpenSkills] = useState(false);
+  const requestFullScreen = () => {
+    if (document.documentElement.requestFullscreen) {
+      document.documentElement.requestFullscreen().catch((err) => {
+        console.error("Error attempting to enable full screen:", err);
+      });
+    }
+  };
+  useEffect(() => {
+    if (isOpenSkills && window.innerWidth < 768) {
+      window.scrollTo(0, 0);
+      requestFullScreen();
+    } else {
+      document.exitFullscreen();
+    }
+  }, [isOpenSkills]);
+
   return (
     <>
       {isOpenSkills && (
         <div
-          className=""
+          className="top-skill-wrapper"
           style={{
             width: "100vw",
-            height: "130vh",
-            position: "absolute",
+            height: "100vh",
+            position: "fixed",
             zIndex: "30",
             backgroundColor: "#000000d3",
-            top: "-200px",
+            top: "0",
             left: "0",
           }}
         >
           <div
             className="skills-popup"
             style={{
-              position: "relative",
-              top: "45%",
+              position: "absolute",
+              top: "50%",
               left: "50%",
               width: "80%",
-              height: "90vh",
+              height: "96vh",
               border: "1px solid white",
               transform: "translate(-50%, -50%)",
               padding: "20px",
-              paddingTop: "60px",
+              paddingTop: "120px",
               display: "flex",
               gap: "20px",
               alignItems: "baseline",
@@ -86,7 +103,7 @@ export const HeroContent = () => {
               className="circleX"
             />
             <SkillCard />
-            <SkillCard2 />
+            <SkillCard2 style={{ marginBottom: "130px" }} />
           </div>
         </div>
       )}
