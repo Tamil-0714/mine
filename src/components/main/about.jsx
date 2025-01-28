@@ -3,6 +3,8 @@
 // import { SparklesIcon } from "@heroicons/react/24/solid";
 import { motion } from "framer-motion";
 
+import "../sub/about.css";
+
 import {
   FaGithub,
   FaLinkedin,
@@ -48,16 +50,16 @@ export const About = () => {
       <motion.div
         initial="hidden"
         animate="visible"
-        className="flex flex-row items-center justify-center px-20 ml-20 w-full z-[20]"
+        className="flex flex-row items-center justify-center px-20 ml-20 w-full z-[20] main-about-container"
       >
-        <div className="h-full w-full flex flex-col gap-5 justify-center m-auto text-start">
+        <div className="h-full w-full flex flex-col gap-5 justify-center m-auto text-start about-box-wrapper">
           <div
             style={{
               display: "flex",
               alignItems: "center",
               // outline:"1px solid",
               width: "650px",
-              gap:"40px"
+              gap: "40px",
             }}
           >
             <motion.div
@@ -68,7 +70,7 @@ export const About = () => {
               style={{
                 padding: "12px",
               }}
-              className="Welcome-box  py-[8px] px-[7px] border border-[#7042f88b] opacity-[0.9]]"
+              className="Welcome-box  py-[8px] px-[7px] border border-[#7042f88b] opacity-[0.9]] about-me-box"
             >
               {/* <BlurText
                 text="About Me"
@@ -82,10 +84,11 @@ export const About = () => {
               {/* <SparklesText className="mx-2 text-white" text="Hey there!👋" /> */}
             </motion.div>
             <motion.div
-            variants={slideInFromLeft(1)}
+              variants={slideInFromLeft(1)}
               style={{
                 marginRight: "30px",
               }}
+              className="focus-on-text-box"
             >
               <TrueFocus
                 // sentence="Focus-> Hire me"
@@ -98,7 +101,7 @@ export const About = () => {
             </motion.div>
           </div>
           <motion.p
-            className="mt-0  text-white border border-[#7042f88b] p-10 rounded lg:w-4/5"
+            className="mt-0  text-white border border-[#7042f88b] p-10 rounded lg:w-4/5 about-content-box"
             style={{
               fontSize: "1.1rem",
               lineHeight: "30px",
@@ -107,7 +110,7 @@ export const About = () => {
             // exit="exit"
           >
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500">
-              I'm a Software Engineer 
+              I'm a Software Engineer
             </span>{" "}
             with a passion for designing and building innovative, user-focused
             solutions. I specialize in developing dynamic, responsive, and
@@ -132,7 +135,7 @@ export const About = () => {
         <motion.div
           variants={slideInFromRight(0.8)}
           // exit="exit"
-          className="w-full h-full flex justify-center items-center"
+          className="w-full h-full flex justify-center items-center hobbies-box"
         >
           {/* <Image
           src="/hero-bg.svg"
@@ -147,29 +150,54 @@ export const About = () => {
               Hobbies
             </span>
 
-            <OrbitingCircles iconSize={70} radius={190}>
+            <OrbitingCircles className="lower-size" iconSize={70} radius={140}>
               <img
                 src="/hobbies/h1.png"
                 alt="Fitness"
-                className="lg:w-32 w-8"
+                className="lg:w-32 "
               />
-              <img src="/hobbies/h2.png" alt="Cookin" className="lg:w-32 w-8" />
-              <img src="/hobbies/h3.png" alt="Games" className="lg:w-32 w-8" />
-              <img src="/hobbies/h4.png" alt="Coding" className="lg:w-32 w-8" />
+              <img src="/hobbies/h2.png" alt="Cookin" className="lg:w-32 " />
+              <img src="/hobbies/h3.png" alt="Games" className="lg:w-32 " />
+              <img src="/hobbies/h4.png" alt="Coding" className="lg:w-32 " />
               <img
                 src="/hobbies/h5.png"
                 alt="Learning"
-                className="lg:w-32 w-8"
+                className="lg:w-32 "
               />
               <img
                 src="/hobbies/h6.png"
                 alt="Reading"
-                className="lg:w-32 w-8"
+                className="lg:w-32 "
               />
               <img
                 src="/hobbies/h9.png"
                 alt="Disscusion"
-                className="lg:w-32 w-8"
+                className="lg:w-32 "
+              />
+            </OrbitingCircles>
+            <OrbitingCircles className="higher-size" iconSize={70} radius={190}>
+              <img
+                src="/hobbies/h1.png"
+                alt="Fitness"
+                className="lg:w-32 "
+              />
+              <img src="/hobbies/h2.png" alt="Cookin" className="lg:w-32 " />
+              <img src="/hobbies/h3.png" alt="Games" className="lg:w-32 " />
+              <img src="/hobbies/h4.png" alt="Coding" className="lg:w-32 " />
+              <img
+                src="/hobbies/h5.png"
+                alt="Learning"
+                className="lg:w-32 "
+              />
+              <img
+                src="/hobbies/h6.png"
+                alt="Reading"
+                className="lg:w-32 "
+              />
+              <img
+                src="/hobbies/h9.png"
+                alt="Disscusion"
+                className="lg:w-32 "
               />
             </OrbitingCircles>
 

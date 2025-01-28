@@ -2,7 +2,7 @@ import { Laptop } from "lucide-react"
 
 export default function DeveloperCard() {
   return (
-    <div className="relative max-w-md h-[440px] p-8 bg-white rounded-lg shadow-lg" style={{color:"black"}}>
+    <div className="relative max-w-md h-[455px] p-8 bg-white rounded-lg shadow-lg" style={{color:"black"}}>
       {/* Background pattern */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute inset-0 opacity-10">
@@ -32,22 +32,24 @@ export default function DeveloperCard() {
           </div>
         </div>
 
-        <p className="text-sm">I enjoy writing clean code and creating useful products.</p>
+        <p className="text-sm">I take pride in crafting well-structured code and developing impactful solutions.</p>
 
         <div className="space-y-2">
-          <h3 className="font-mono font-bold">I LIKE TO CODE IN</h3>
-          <p className="text-sm">Python, Java, Javascript, Node, MySQL, GraphQL, Spring, C, C++, MongoDB & Dart</p>
+          <h3 className="font-mono font-bold">I CAN CODE IN</h3>
+          <p className="text-sm">Javascript, NodeJs, ReactJs,  Java, C, C++, Python, MySQL, GraphQL & MongoDB </p>
         </div>
 
         <div className="space-y-2">
           <h3 className="font-mono font-bold">TOOLS</h3>
           <ul className="text-sm list-disc list-inside">
-            <li>Anaconda</li>
-            <li>Eclipse</li>
             <li>Jupyter</li>
+            <li>Eclipse</li>
             <li>Pycharm</li>
+            <li>Anaconda</li>
+            <li>VIM</li>
           </ul>
         </div>
+        
       </div>
     </div>
   )

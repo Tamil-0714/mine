@@ -2,46 +2,40 @@ import { useEffect, useState } from "react";
 import "./App.css";
 import { Hero } from "./components/main/hero";
 import { StarsCanvas } from "./components/main/star-background";
-import { FloatingDockDemo } from "./components/sub/floatingDemo";
+// import { FloatingDockDemo } from "./components/sub/floatingDemo";
 import { About } from "./components/main/about";
 import { motion } from "framer-motion";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import {
-  slideInFromLeft,
-  slideInFromRight,
-  slideInFromTopWithDelay,
-  slideInFromTop,
-  bounceVariants,
-} from "@/lib/motion";
+import { slideInFromLeft } from "@/lib/motion";
+import Project from "./components/main/project";
+import { FloatingDockDemo } from "../dist/floatingDemo.es.js";
 
 function App() {
-  
-
   return (
     <>
-    <Router>
-      <StarsCanvas />
-      <main className="h-full w-full">
-        <div className="flex flex-col gap-20">
-          <div>
-            <motion.div variants={slideInFromLeft(1)} >
-
-            <FloatingDockDemo />
-            </motion.div>
-            <Routes>
-              <Route path="/" element={<Hero />} />
-              <Route path="/about" element={<About />} />
-            </Routes>
-            {/* {currenctComponetn === "home" ? (
+      <Router>
+        <StarsCanvas />
+        <main className="h-full w-full">
+          <div className="flex flex-col gap-20">
+            <div>
+              <motion.div variants={slideInFromLeft(1)} className="floating-dock-container">
+                <FloatingDockDemo />
+              </motion.div>
+              <Routes>
+                <Route path="/" element={<Hero />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/project" element={<Project />} />
+              </Routes>
+              {/* {currenctComponetn === "home" ? (
               <Hero />
             ) : currenctComponetn === "about" ? (
               <About />
             ) : (
               <>"no components selected"</>
             )} */}
+            </div>
           </div>
-        </div>
-      </main>
+        </main>
       </Router>
     </>
   );

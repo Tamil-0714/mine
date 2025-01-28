@@ -1,0 +1,66 @@
+.higher-size{
+    display: flex;
+}
+.lower-size{
+    display: none;
+}
+@media (max-width: 1750px) {
+  .main-about-container {
+   /* flex-direction: column; */
+   margin: auto;
+  }
+  .floating-dock-container{
+    margin-bottom: 50px;
+}
+  .about-box-wrapper{
+    width: 200% !important;
+  }
+  .about-content-box{
+    width: 80%;
+  }
+  body{
+    overflow-y: auto !important;
+    
+    /* color: red; */
+}
+}
+@media (max-width: 1450px) {
+  .main-about-container {
+   flex-direction: column;
+   margin: auto;
+  }
+  .about-box-wrapper{
+    width: 100% !important;
+    margin-bottom: 40px;
+  }
+  .hobbies-box {
+    margin-bottom: 40px;
+  }
+  .hobbies-box div{
+    height: 460px;
+  }
+
+  .focus-on-text-box *{
+    font-size: 1rem !important;
+  }
+  
+}
+
+@media (max-width: 768px) {
+    .main-about-container{
+        padding: 0;
+    }
+    .about-content-box{
+        width: 94% !important;
+        margin-left: 2%;
+    }
+    .higher-size{
+        display: none;
+    }
+    .lower-size{
+        display: flex;
+    }
+    .about-me-box{
+        margin-left: 30px;
+    }
+}

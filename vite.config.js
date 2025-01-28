@@ -9,10 +9,21 @@ export default defineConfig({
   //   port: 5173, // Use the default port
   // },
   build: {
-    sourcemap: "production" !== 'production', // Only generate source maps in production
-  },
-  optimizeDeps: {
-    include: ['three'],
+    lib: {
+      entry: './src/components/sub/floatingDemo.jsx', // Path to the specific component
+      name: 'floatingDemo',
+      fileName: (format) => `floatingDemo.${format}.js`,
+    },
+    rollupOptions: {
+      // External dependencies that should not be bundled (e.g., React)
+      external: ['react', 'react-dom'],
+      output: {
+        globals: {
+          react: 'React',
+          'react-dom': 'ReactDOM',
+        },
+      },
+    },
   },
   resolve: {
     alias: {

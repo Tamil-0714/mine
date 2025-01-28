@@ -3,10 +3,8 @@ import { FloatingDock } from "./floating-dock";
 import {
   IconBrandGithub,
   IconBrandX,
-  IconExchange,
   IconHome,
-  IconNewSection,
-  IconTerminal2,
+
   IconUser,
   IconMail
 } from "@tabler/icons-react";
@@ -35,7 +33,7 @@ export function FloatingDockDemo() {
       icon: (
         <IconMail className="h-full w-full text-neutral-500 dark:text-neutral-300" />
       ),
-      href: "#",
+      href: "mailto:tamil.tj.1967@gmail.com",
     },
     {
       title: "LinkedIn",
@@ -43,7 +41,7 @@ export function FloatingDockDemo() {
         <IconBrandLinkedin className="h-full w-full text-neutral-500 dark:text-neutral-300" />
         
       ),
-      href: "#",
+      href: "https://www.linkedin.com/in/tamil0714/",
     },
 
     {
@@ -51,7 +49,7 @@ export function FloatingDockDemo() {
       icon: (
         <IconBrandX className="h-full w-full text-neutral-500 dark:text-neutral-300" />
       ),
-      href: "#",
+      href: "https://x.com/Tamil_0714",
     },
     {
       title: "GitHub",
@@ -59,7 +57,7 @@ export function FloatingDockDemo() {
         <IconBrandGithub className="h-full w-full text-neutral-500 dark:text-neutral-300" />
       ),
       href: "http://www.github.com/tamil-0714",
-    },
+    }, 
   ];
   return (
     (<div className="flex items-center justify-center mt-20 w-full dock-nav-bar">

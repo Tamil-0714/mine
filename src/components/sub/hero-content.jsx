@@ -43,6 +43,19 @@ import { useEffect, useState } from "react";
 const words = ["Javascript.", "Node.js", "React.js", "Backend.", "Frontend."];
 
 export const HeroContent = () => {
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === "Escape") {
+        setIsOpenSkills(false);
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, []);
   const [isOpenSkills, setIsOpenSkills] = useState(false);
   const requestFullScreen = () => {
     if (document.documentElement.requestFullscreen) {
@@ -74,6 +87,9 @@ export const HeroContent = () => {
             top: "0",
             left: "0",
           }}
+          onClick={() => {
+            setIsOpenSkills(false);
+          }}
         >
           <div
             className="skills-popup"
@@ -93,6 +109,9 @@ export const HeroContent = () => {
               flexWrap: "wrap",
               overflow: "auto",
               justifyContent: "center",
+            }}
+            onClick={(e) => {
+              e.stopPropagation(); // Prevents the click event from bubbling to the parent
             }}
           >
             <CircleX
@@ -223,8 +242,7 @@ export const HeroContent = () => {
               variants={slideInFromLeft(0.5)}
               // exit="exit"
               className="py-2 button-primary text-center text-white cursor-pointer rounded-lg max-w-[200px] works-btn-a"
-              href="https://drive.google.com/file/d/1Ig1VzgaVHBqu8BsyB5IRotf6S0Irec-Q/view?usp=sharing"
-              target="_blank"
+              href="/projects"
             >
               My Works
             </motion.a>
