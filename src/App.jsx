@@ -2,13 +2,13 @@ import { useEffect, useState } from "react";
 import "./App.css";
 import { Hero } from "./components/main/hero";
 import { StarsCanvas } from "./components/main/star-background";
-// import { FloatingDockDemo } from "./components/sub/floatingDemo";
+import { FloatingDockDemo } from "./components/sub/floatingDemo";
 import { About } from "./components/main/about";
 import { motion } from "framer-motion";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { slideInFromLeft } from "@/lib/motion";
 import Project from "./components/main/project";
-import { FloatingDockDemo } from "../dist/floatingDemo.es.js";
+// import { FloatingDockDemo } from "../dist/floatingDemo.es.js";
 
 function App() {
   return (
