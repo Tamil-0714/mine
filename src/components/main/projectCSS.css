@@ -1,0 +1,16 @@
+.project-wrapper::-webkit-scrollbar {
+  width: 4px;
+}
+
+.project-wrapper::-webkit-scrollbar-track {
+  background: transparent; /* Transparent track */
+}
+
+.project-wrapper::-webkit-scrollbar-thumb {
+  background: rgb(255, 255, 255); /* Semi-transparent */
+  border-radius: 10px;
+}
+
+.project-wrapper::-webkit-scrollbar-thumb:hover {
+  background: rgba(151, 151, 151, 0.842);
+}

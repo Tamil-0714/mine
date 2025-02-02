@@ -1,4 +1,5 @@
 // import { SparklesIcon } from "@heroicons/react/24/solid";
+import { lazy, Suspense, useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 import {
@@ -32,28 +33,33 @@ import { OrbitingCircles } from "./OrbitalSkill";
 import { FaDocker, FaUbuntu } from "react-icons/fa";
 import SparklesText from "./sparkles-text";
 import { FlipWords } from "./flip-words";
-import SkillTagCloud from "./roatingSkills";
+// import SkillTagCloud from "./roatingSkills";
+const SkillTagCloud = lazy(() => import("./roatingSkills"));
 import Magnet from "./Magnet";
 import SkillGrid from "./skill-grid";
 import "./hero.css";
 import SkillCard from "./skill-card";
 import SkillCard2 from "./skill-card2";
 import { CircleX } from "lucide-react";
-import { useEffect, useState } from "react";
 const words = ["Javascript.", "Node.js", "React.js", "Backend.", "Frontend."];
 
 export const HeroContent = () => {
+  const [showSkills, setShowSkills] = useState(false);
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key === "Escape") {
         setIsOpenSkills(false);
       }
     };
+    const timeout = setTimeout(() => {
+      setShowSkills(true);
+    }, 2000); // Adjust delay as needed
 
     document.addEventListener("keydown", handleKeyDown);
 
     return () => {
       document.removeEventListener("keydown", handleKeyDown);
+      clearTimeout(timeout);
     };
   }, []);
   const [isOpenSkills, setIsOpenSkills] = useState(false);
@@ -292,18 +298,22 @@ export const HeroContent = () => {
             <FaDocker className="text-cyan-500 lg:text-8xl text-3xl" />
             <FaUbuntu className="text-orange-500 lg:text-8xl text-3xl" />
           </OrbitingCircles> */}
-
-            <SkillTagCloud
-              percam={100}
-              className="mobile-skillcloud"
-              setIsOpenSkills={setIsOpenSkills}
-            />
-
-            <SkillTagCloud
-              percam={75}
-              className="laption-skillcloud"
-              setIsOpenSkills={setIsOpenSkills}
-            />
+            {showSkills ? (
+              <Suspense fallback={<p>Loading skills...</p>}>
+                <SkillTagCloud
+                  percam={100}
+                  className="mobile-skillcloud"
+                  setIsOpenSkills={setIsOpenSkills}
+                />
+                <SkillTagCloud
+                  percam={75}
+                  className="laption-skillcloud"
+                  setIsOpenSkills={setIsOpenSkills}
+                />
+              </Suspense>
+            ) : (
+              <p>Loading skills...</p>
+            )}
           </div>
         </motion.div>
       </motion.div>
