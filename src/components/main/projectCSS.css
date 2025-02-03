@@ -14,3 +14,21 @@
 .project-wrapper::-webkit-scrollbar-thumb:hover {
   background: rgba(151, 151, 151, 0.842);
 }
+
+
+@media (max-width:768px) {
+  *{
+    /* outline: 1px solid red; */
+  }
+.project-wrapper{
+  overflow-x: hidden !important;
+  width: 350px !important;
+  padding: 0 !important;
+  padding-left: 24px !important;
+  
+  /* outline: 1px solid red; */
+}
+  .single-card{
+    width: 300px  !important;
+  }
+}
