@@ -9,6 +9,7 @@ import {
   IconMail
 } from "@tabler/icons-react";
 import { IconBrandLinkedin } from "@tabler/icons-react/dist/esm/tabler-icons-react";
+import { FaProjectDiagram } from "react-icons/fa";
 // import Image from "next/image";
 
 export function FloatingDockDemo() {
@@ -29,6 +30,13 @@ export function FloatingDockDemo() {
       href: "/about",
     },
     {
+      title: "Projects",
+      icon: (
+        <FaProjectDiagram className="h-full w-full text-neutral-500 dark:text-neutral-300" />
+      ),
+      href: "/projects",
+    },
+    {
       title: "Reach me",
       icon: (
         <IconMail className="h-full w-full text-neutral-500 dark:text-neutral-300" />
@@ -44,13 +52,7 @@ export function FloatingDockDemo() {
       href: "https://www.linkedin.com/in/tamil0714/",
     },
 
-    {
-      title: "Twitter",
-      icon: (
-        <IconBrandX className="h-full w-full text-neutral-500 dark:text-neutral-300" />
-      ),
-      href: "https://x.com/Tamil_0714",
-    },
+    
     {
       title: "GitHub",
       icon: (

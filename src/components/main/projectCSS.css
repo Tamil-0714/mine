@@ -14,6 +14,16 @@
 .project-wrapper::-webkit-scrollbar-thumb:hover {
   background: rgba(151, 151, 151, 0.842);
 }
+.decs-scroll::-webkit-scrollbar {
+  width: 5px;
+}
+.decs-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+.decs-scroll::-webkit-scrollbar-thumb {
+  background: rgb(212, 255, 253);
+  border-radius: 13px;
+}
 
 
 @media (max-width:768px) {

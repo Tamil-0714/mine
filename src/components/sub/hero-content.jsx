@@ -9,6 +9,8 @@ import {
   FaReact,
   FaPython,
   FaJava,
+  FaTwitter,
+  FaX,
 } from "react-icons/fa6";
 import { DiMongodb } from "react-icons/di";
 import { RiJavascriptFill } from "react-icons/ri";
@@ -206,6 +208,9 @@ export const HeroContent = () => {
               </a>
               <a href="https://www.linkedin.com/in/tamil0714/" target="_blank">
                 <FaLinkedin className="h-7 w-7" />
+              </a>
+              <a href="https://x.com/Tamil_0714/" target="_blank">
+                <FaX className="h-6 w-6" />
               </a>
             </div>
           </motion.p>
